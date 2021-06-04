@@ -30,8 +30,12 @@ jobs:
         pwd
         cd api/
         pwd
-    - run: npm ci
-    - run: npm run build --if-present
+    - run: |
+        cd api/
+        npm ci
+    - run: |
+        cd api/
+        npm run build --if-present
     - name: Login to Docker Hub
       run: docker login --username "${{ secrets.DOCKER_USERNAME }}" --password "${{ secrets.DOCKER_PWD }}"
     - name: Build the Docker Image
