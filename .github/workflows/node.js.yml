@@ -26,7 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: change directory
-      run: cd api/   
+      run: | 
+        pwd
+        cd api/   
     - run: npm ci
     - run: npm run build --if-present
     - name: Login to Docker Hub
